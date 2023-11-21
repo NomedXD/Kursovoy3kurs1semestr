@@ -8,19 +8,16 @@ void checkMovementKeysPress(Snake& snake, float time);
 
 int main()
 {
+	SnakePart::init();
 	HINSTANCE instance = GetModuleHandle(NULL);
 
 	HWND hwnd = initWindow(instance);
 	RenderWindow window(hwnd);
 
-	Texture snakeTexture;
-	snakeTexture.loadFromFile("images/snake_sprites_fix.png");
-
-	Snake snake("snakeSprite.jpg", 250, 250, 30, 30);
+	Snake snake;
 
 	Clock clock;
 	float currentFrame = 0;
-
 	MSG msg;
 	msg.message = WM_NULL;
 	while (msg.message != WM_QUIT)
@@ -38,9 +35,19 @@ int main()
 
 
 			checkMovementKeysPress(snake, time);
-			snake.update(time);
+			snake.snakeHead.update(time);
+			for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
+				it->update(time);
+			}
+			snake.snakeTail.update(time);
+
+
 			window.clear();
-			window.draw(snake.snakeSprites.front());
+			window.draw(snake.snakeHead.sprite);
+			for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
+				window.draw(it->sprite);
+			}
+			window.draw(snake.snakeTail.sprite);
 			window.display();
 		}
 	}
@@ -78,27 +85,22 @@ HWND initWindow(HINSTANCE instance)
 
 void checkMovementKeysPress(Snake& snake, float time) {
 	if (GetAsyncKeyState(0x41)) {
-		snake.dir = 1; snake.speed = 0.1;//dir =1 - направление вверх, speed =0.1 - скорость движени€. «аметьте - врем€ мы уже здесь ни на что не умножаем и нигде не используем каждый раз
-		snake.currentFrame += 0.005 * time;
-		if (snake.currentFrame > 6) snake.currentFrame -= 6;
-		snake.snakeSprites.front().setTextureRect(IntRect(30 * int(snake.currentFrame), 270, snake.w, snake.h));
+		snake.snakeHead.dir = 1;
+		snake.snakeHead.speed = 0.2;
+		
 	}
 	if (GetAsyncKeyState(0x44)) {
-		snake.dir = 0; snake.speed = 0.1;//dir =1 - направление вверх, speed =0.1 - скорость движени€. «аметьте - врем€ мы уже здесь ни на что не умножаем и нигде не используем каждый раз
-		snake.currentFrame += 0.005 * time;
-		if (snake.currentFrame > 6) snake.currentFrame -= 6;
-		snake.snakeSprites.front().setTextureRect(IntRect(30 * int(snake.currentFrame) + snake.w, 270, -snake.w, snake.h));
+		snake.snakeHead.dir = 0;
+		snake.snakeHead.speed = 0.2;
+		
 	}
 	if (GetAsyncKeyState(0x57)) {
-		snake.dir = 3; snake.speed = 0.1;//dir =1 - направление вверх, speed =0.1 - скорость движени€. «аметьте - врем€ мы уже здесь ни на что не умножаем и нигде не используем каждый раз
-		snake.currentFrame += 0.005 * time;
-		if (snake.currentFrame > 6) snake.currentFrame -= 6;
-		snake.snakeSprites.front().setTextureRect(IntRect(30 * int(snake.currentFrame), 300, snake.w, snake.h));
+		snake.snakeHead.dir = 3;
+		snake.snakeHead.speed = 0.2;
+		
 	}
 	if (GetAsyncKeyState(0x53)) {
-		snake.dir = 2; snake.speed = 0.1;//dir =1 - направление вверх, speed =0.1 - скорость движени€. «аметьте - врем€ мы уже здесь ни на что не умножаем и нигде не используем каждый раз
-		snake.currentFrame += 0.005 * time;
-		if (snake.currentFrame > 6) snake.currentFrame -= 6;
-		snake.snakeSprites.front().setTextureRect(IntRect(30 * int(snake.currentFrame), 300 + snake.h, snake.w, -snake.h));
+		snake.snakeHead.dir = 2;
+		snake.snakeHead.speed = 0.2;
 	}
 }

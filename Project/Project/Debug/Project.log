@@ -1,71 +1,67 @@
 ﻿  main.cpp
-D:\3 курс, 1 сем\Курсовой\Project\Project\Snake.h(26,48): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeHead.h(7,50): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\Snake.h(26,45): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeHead.h(7,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(35,15): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(81,35): warning C4305: =: усечение из "double" в "float"
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(82,31): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(84,102): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeHead.h(7,42): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(84,93): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeHead.h(7,35): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(87,35): warning C4305: =: усечение из "double" в "float"
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(88,31): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(90,113): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeBody.h(7,50): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(90,98): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeBody.h(7,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(90,82): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeBody.h(7,42): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(93,35): warning C4305: =: усечение из "double" в "float"
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(94,31): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(96,102): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeBody.h(7,35): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(96,93): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeTail.h(7,50): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(99,35): warning C4305: =: усечение из "double" в "float"
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(100,31): warning C4244: +=: преобразование "double" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,107): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeTail.h(7,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,103): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeTail.h(7,42): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,87): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeTail.h(7,35): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
           with
           [
               T=int
           ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(32,15): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(89,30): warning C4305: =: усечение из "double" в "float"
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(94,30): warning C4305: =: усечение из "double" в "float"
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(99,30): warning C4305: =: усечение из "double" в "float"
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(104,30): warning C4305: =: усечение из "double" в "float"
   Project.vcxproj -> D:\3 курс, 1 сем\Курсовой\Project\Debug\Project.exe
