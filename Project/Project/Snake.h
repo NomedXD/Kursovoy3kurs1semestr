@@ -11,6 +11,7 @@ public:
 	SnakeHead snakeHead = SnakeHead("snake_sprites_small.png", 250, 250, 32, 32);
 	vector<SnakeBody> snakeBody;
 	SnakeTail snakeTail = SnakeTail("snake_sprites_small.png", 190, 250, 32, 32);
+	int canTurn = 0;
 	vector<Vector2f> turns;
 public:
 	Snake() {

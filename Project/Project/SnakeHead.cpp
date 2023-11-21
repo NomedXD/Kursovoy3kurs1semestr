@@ -9,8 +9,8 @@ void SnakeHead::update(float time) {
 	case 3: dx = 0; dy = -speed;   break;
 	}
 
-	x += dx * time;
-	y += dy * time;
+	x += dx ;
+	y += dy ;
 
 	sprite.setPosition(x, y);
 }

@@ -9,9 +9,8 @@ void SnakeTail::update(float time) {
 	case 3: dx = 0; dy = -speed;   break;
 	}
 
-	x += dx * time;
-	y += dy * time;
+	x += dx;
+	y += dy;
 
-	speed = 0;
 	sprite.setPosition(x, y);
 }
