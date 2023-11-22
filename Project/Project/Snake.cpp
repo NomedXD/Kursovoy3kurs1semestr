@@ -1,7 +1,7 @@
 #include "Snake.h"
 
 void Snake::control() {
-	if (GetAsyncKeyState(0x41)) {
+	if (GetAsyncKeyState(0x41) && (snakeHead.dir != 1) && !GetAsyncKeyState(0x44) && !GetAsyncKeyState(0x57) && !GetAsyncKeyState(0x53)) {
 		int prevDir = snakeHead.dir;
 		snakeHead.dir = 1;
 		snakeHead.speed = 32;
@@ -15,7 +15,7 @@ void Snake::control() {
 		snakeTail.dir = prevDir;
 		snakeTail.speed = 32;
 	}
-	if (GetAsyncKeyState(0x44)) {
+	if (GetAsyncKeyState(0x44) && (snakeHead.dir != 0) && !GetAsyncKeyState(0x41) && !GetAsyncKeyState(0x57) && !GetAsyncKeyState(0x53)) {
 		int prevDir = snakeHead.dir;
 		snakeHead.dir = 0;
 		snakeHead.speed = 32;
@@ -29,7 +29,7 @@ void Snake::control() {
 		snakeTail.dir = prevDir;
 		snakeTail.speed = 32;
 	}
-	if (GetAsyncKeyState(0x57)) {
+	if (GetAsyncKeyState(0x57) && (snakeHead.dir != 3) && !GetAsyncKeyState(0x41) && !GetAsyncKeyState(0x44) && !GetAsyncKeyState(0x53)) {
 		int prevDir = snakeHead.dir;
 		snakeHead.dir = 3;
 		snakeHead.speed = 32;
@@ -43,7 +43,7 @@ void Snake::control() {
 		snakeTail.dir = prevDir;
 		snakeTail.speed = 32;
 	}
-	if (GetAsyncKeyState(0x53)) {
+	if (GetAsyncKeyState(0x53) && (snakeHead.dir != 2) && !GetAsyncKeyState(0x41) && !GetAsyncKeyState(0x44) && !GetAsyncKeyState(0x57)) {
 		int prevDir = snakeHead.dir;
 		snakeHead.dir = 2;
 		snakeHead.speed = 32;

@@ -1,11 +1,11 @@
 #include "SnakeTail.h"
 
-bool SnakeTail::removeTurnsPredicate(turn turn) {
-	return turn.beRemoved == true;
+bool SnakeTail::removeTurnsPredicate(turn currentTurn) {
+	return currentTurn.beRemoved == true;
 }
 
 void SnakeTail::update(float time) {
-	turns.erase(remove_if(turns.begin(), turns.end(), &SnakeTail::removeTurnsPredicate), turns.end());
+	turns.erase(remove_if(turns.begin(), turns.end(), &removeTurnsPredicate), turns.end());
 	switch (dir)
 	{
 	case 0: dx = speed; dy = 0;   break;
