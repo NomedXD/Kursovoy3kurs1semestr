@@ -26,3 +26,11 @@ public:
 	virtual void update(float time) = 0;
 };
 
+struct turn
+{
+	float x, y, speed;
+	int fromDir, dir;
+	bool applied;
+	bool beRemoved;
+};
+

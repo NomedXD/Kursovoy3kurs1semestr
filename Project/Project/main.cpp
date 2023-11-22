@@ -4,7 +4,6 @@ using namespace sf;
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 HWND initWindow(HINSTANCE instance);
-void checkMovementKeysPress(Snake& snake, float time);
 
 int main()
 {
@@ -33,7 +32,7 @@ int main()
 			clock.restart(); //перезагружает время
 			time = time / 1000; //скорость игры
 
-			checkMovementKeysPress(snake, time);
+			snake.control();
 			snake.snakeHead.update(time);
 			for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
 				it->update(time);
@@ -82,29 +81,3 @@ HWND initWindow(HINSTANCE instance)
 	return CreateWindowEx(WS_EX_WINDOWEDGE, L"Snake", L"Snake", WS_VISIBLE | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 640, 480, NULL, NULL, instance, NULL);
 }
 
-void checkMovementKeysPress(Snake& snake, float time) {
-	if (GetAsyncKeyState(0x41)) {
-		snake.snakeHead.dir = 1;
-		snake.snakeHead.speed = 32;
-	}
-	if (GetAsyncKeyState(0x44)) {
-		snake.snakeHead.dir = 0;
-		snake.snakeHead.speed = 32;
-		for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
-			it->dir = 0;
-			it->speed = 32;
-		}
-		snake.snakeTail.dir = 0;
-		snake.snakeTail.speed = 32;
-		
-	}
-	if (GetAsyncKeyState(0x57)) {
-		snake.snakeHead.dir = 3;
-		snake.snakeHead.speed = 32;
-		
-	}
-	if (GetAsyncKeyState(0x53)) {
-		snake.snakeHead.dir = 2;
-		snake.snakeHead.speed = 32;
-	}
-}
