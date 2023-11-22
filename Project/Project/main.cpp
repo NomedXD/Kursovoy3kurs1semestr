@@ -38,7 +38,7 @@ int main()
 				it->update(time);
 			}
 			snake.snakeTail.update(time);
-			sleep(seconds(0.30));
+			sleep(seconds(0.15));
 
 			window.clear();
 			window.draw(snake.snakeHead.sprite);
