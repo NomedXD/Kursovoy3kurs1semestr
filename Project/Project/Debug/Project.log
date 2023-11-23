@@ -59,6 +59,26 @@ D:\3 курс, 1 сем\Курсовой\Project\Project\SnakeTail.h(9,35): warn
           [
               T=int
           ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\Apple.h(20,50): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\Apple.h(20,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\Apple.h(20,42): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\Apple.h(20,35): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(60,15): warning C4244: return: преобразование "double" в "float", возможна потеря данных
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(144,18): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(145,24): warning C4244: =: преобразование "float" в "int", возможна потеря данных
@@ -90,8 +110,9 @@ D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(309,20): warnin
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(318,20): warning C4018: <: несоответствие типов со знаком и без знака
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(340,28): warning C4018: <: несоответствие типов со знаком и без знака
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(341,27): warning C4018: <: несоответствие типов со знаком и без знака
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(43,15): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(58,22): warning C4305: аргумент: усечение из "double" в "float"
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(109,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(84,16): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(152,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(181,45): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(181,37): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(312): warning C4715: Level::GetObjectW: значение возвращается не при всех путях выполнения
   Project.vcxproj -> D:\3 курс, 1 сем\Курсовой\Project\Debug\Project.exe
