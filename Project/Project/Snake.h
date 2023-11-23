@@ -9,12 +9,14 @@ using namespace sf;
 class Snake
 {
 public:
-	SnakeHead snakeHead = SnakeHead("snake_sprites_small.png", 320, 320, 32, 32);
+	SnakeHead snakeHead;
 	vector<SnakeBody> snakeBody;
-	SnakeTail snakeTail = SnakeTail("snake_sprites_small.png", 256, 320, 32, 32);
+	SnakeTail snakeTail;
 public:
-	Snake() {
-		snakeBody.push_back(SnakeBody("snake_sprites_small.png", 288, 320, 32, 32));
+	Snake(SnakeHead& head, SnakeBody& body, SnakeTail& tail) {
+		snakeHead = head;
+		snakeBody.push_back(body);
+		snakeTail = tail;
 	}
 	void control();
 };

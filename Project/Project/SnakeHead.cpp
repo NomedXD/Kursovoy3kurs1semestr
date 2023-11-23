@@ -9,8 +9,12 @@ void SnakeHead::update(float time) {
 	case 3: dx = 0; dy = -speed;   break;
 	}
 
-	x += dx ;
-	y += dy ;
+	x += dx;
+	y += dy;
 
 	sprite.setPosition(x, y);
+}
+
+FloatRect SnakeHead::getRect() {
+	return FloatRect(x, y, w, h);
 }

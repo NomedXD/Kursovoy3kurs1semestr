@@ -21,7 +21,7 @@ public:
 		sprite.setTexture(texture);
 		x = X; y = Y;
 	}
-
+	SnakePart() {};
 	static void init();
 public:
 	virtual void update(float time) = 0;
