@@ -19,6 +19,7 @@ public:
 		snakeBody.push_back(body);
 		snakeTail = tail;
 	}
+	Snake() {};
 	void control();
 	bool checkSnakeSelfCollision();
 };
