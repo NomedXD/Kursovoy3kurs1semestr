@@ -25,6 +25,12 @@ unsigned random(PRNG& generator, unsigned minValue, unsigned maxValue)
 	return distribution(generator.engine);
 }
 
+void menu(HWND hwnd) {
+	HMENU hMenu = CreateMenu();
+	AppendMenu(hMenu, MF_POPUP, 1, L"Restart");
+	SetMenu(hwnd, hMenu);
+}
+
 int main()
 {
 	SnakePart::init();
@@ -32,7 +38,7 @@ int main()
 
 	HWND hwnd = initWindow(instance);
 	RenderWindow window(hwnd);
-
+	window.setPosition(sf::Vector2i(100, 0));
 	PRNG generator;
 	initGenerator(generator);
 
@@ -54,13 +60,12 @@ int main()
 	SnakeTail tail = SnakeTail(snakeTail.rect.left, snakeTail.rect.top, snakeTail.rect.width, snakeTail.rect.height);
 	Snake snake = Snake(head, body, tail);
 
-	Apple apple = (*generateApple(snake, generator));
+	Apple* apple = generateApple(snake, generator);
 
 	Clock clock;
 	Clock gameTimer;
 	gameTimer.restart();
 
-	float currentFrame = 0;
 	bool first = false;
 	MSG msg;
 	msg.message = WM_NULL;
@@ -80,15 +85,15 @@ int main()
 				clock.restart(); 
 				time = time / 1000; 
 
-				if ((first && checkCollisionWithMap(snake, obj)) || snake.checkSnakeSelfCollision()) {
+				if ((first && checkCollisionWithMap(snake, obj)) || snake.checkSnakeSelfCollision() || snake.score == 781) {
 					return msg.message = WM_QUIT;
 				}
 
-				if (snake.snakeHead.getRect().intersects(apple.getRect())) {
+				if (snake.snakeHead.getRect().intersects((*apple).getRect())) {
 					snake.score++;
 					score.setString("Score: " + to_string(snake.score));
-					//delete &apple;
-					apple = (*generateApple(snake, generator));
+					delete apple;
+					apple = generateApple(snake, generator);
 					// creation of new body
 					SnakeBody newBody = SnakeBody(snake.snakeTail.x, snake.snakeTail.y, snake.snakeTail.w, snake.snakeTail.h);
 					(newBody).dir = snake.snakeTail.dir;
@@ -126,7 +131,7 @@ int main()
 
 				snake.control();
 				snake.snakeHead.update();
-				apple.update(time);
+				(*apple).update(time);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
 					it->update();
 				}
@@ -136,12 +141,12 @@ int main()
 				lev.Draw(window);
 				score.setPosition(40,40);
 				window.draw(score);
-				window.draw(apple.sprite);
+				window.draw((*apple).sprite);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
 					window.draw(it->sprite);
 				}
-				window.draw(snake.snakeHead.sprite);
 				window.draw(snake.snakeTail.sprite);
+				window.draw(snake.snakeHead.sprite);
 				window.display();
 
 				if (!first) {
@@ -157,6 +162,25 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
 	switch (msg)
 	{
+	case WM_CREATE:
+	{
+		menu(hwnd);
+		break;
+	}
+	case WM_COMMAND: 
+	{
+		switch (LOWORD(wp))
+		{
+		case 1: 
+		{
+			CloseWindow(hwnd);
+			break;
+		}
+		default:
+			break;
+		}
+		break;
+	}
 		// Quit when we close the main window
 	case WM_CLOSE:
 	{
@@ -179,7 +203,7 @@ HWND initWindow(HINSTANCE instance)
 	wc.lpszClassName = L"Snake";
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 	RegisterClassEx(&wc);
-	return CreateWindowEx(WS_EX_WINDOWEDGE, L"Snake", L"Snake", WS_VISIBLE | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 980, 1000, NULL, NULL, instance, NULL);
+	return CreateWindowEx(WS_EX_WINDOWEDGE, L"Snake", L"Snake", WS_VISIBLE | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 978, 1030, NULL, NULL, instance, NULL);
 }
 
 
