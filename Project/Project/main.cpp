@@ -10,7 +10,7 @@ struct PRNG
 	std::mt19937 engine;
 };
 
-auto_ptr<Apple> generateApple(const Snake& snake, PRNG& generator);
+Apple* generateApple(const Snake& snake, PRNG& generator);
 
 void initGenerator(PRNG& generator)
 {
@@ -54,7 +54,7 @@ int main()
 	SnakeTail tail = SnakeTail(snakeTail.rect.left, snakeTail.rect.top, snakeTail.rect.width, snakeTail.rect.height);
 	Snake snake = Snake(head, body, tail);
 
-	auto_ptr<Apple> apple = generateApple(snake, generator);
+	Apple apple = (*generateApple(snake, generator));
 
 	Clock clock;
 	Clock gameTimer;
@@ -84,11 +84,11 @@ int main()
 					return msg.message = WM_QUIT;
 				}
 
-				if (snake.snakeHead.getRect().intersects(apple.get()->getRect())) {
+				if (snake.snakeHead.getRect().intersects(apple.getRect())) {
 					snake.score++;
 					score.setString("Score: " + to_string(snake.score));
-					delete apple.get();
-					apple = generateApple(snake, generator);
+					//delete &apple;
+					apple = (*generateApple(snake, generator));
 					// creation of new body
 					SnakeBody newBody = SnakeBody(snake.snakeTail.x, snake.snakeTail.y, snake.snakeTail.w, snake.snakeTail.h);
 					(newBody).dir = snake.snakeTail.dir;
@@ -126,7 +126,7 @@ int main()
 
 				snake.control();
 				snake.snakeHead.update();
-				apple.get()->update(time);
+				apple.update(time);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
 					it->update();
 				}
@@ -136,11 +136,11 @@ int main()
 				lev.Draw(window);
 				score.setPosition(40,40);
 				window.draw(score);
-				window.draw(apple.get()->sprite);
-				window.draw(snake.snakeHead.sprite);
+				window.draw(apple.sprite);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
 					window.draw(it->sprite);
 				}
+				window.draw(snake.snakeHead.sprite);
 				window.draw(snake.snakeTail.sprite);
 				window.display();
 
@@ -197,7 +197,7 @@ bool checkCollisionWithMap(Snake& snake, const vector<Object>& obj)
 	return false;
 }
 
-auto_ptr<Apple> generateApple(const Snake& snake, PRNG& generator) {
+Apple* generateApple(const Snake& snake, PRNG& generator) {
 	bool flag = true;
 	int x = 0;
 	int y = 0;
@@ -214,5 +214,5 @@ auto_ptr<Apple> generateApple(const Snake& snake, PRNG& generator) {
 			}
 		}
 	}
-	return auto_ptr<Apple>(new Apple(x * 32, y * 32, 32, 32));
+	return  (new Apple(x * 32, y * 32, 32, 32));
 }
