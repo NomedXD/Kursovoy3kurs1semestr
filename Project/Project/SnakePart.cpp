@@ -10,3 +10,7 @@ void SnakePart::init()
 	image.loadFromFile("images/" + File);//запихиваем в image наше изображение вместо File мы передадим то, что пропишем при создании объекта. ¬ нашем случае "hero.png" и получитс€ запись идентична€ 	image.loadFromFile("images/hero/png");
 	texture.loadFromImage(image);//закидываем наше изображение в текстуру
 }
+
+FloatRect SnakePart::getRect() {
+	return FloatRect(x, y, w, h);
+}

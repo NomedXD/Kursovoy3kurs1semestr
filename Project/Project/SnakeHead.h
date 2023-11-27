@@ -9,7 +9,6 @@ public:
 	SnakeHead() {
 
 	};
-	void update(float time);
-	FloatRect getRect();
+	void update();
 };
 

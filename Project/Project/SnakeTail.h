@@ -9,7 +9,7 @@ public:
 		sprite.setTextureRect(IntRect(4 * W, 2 * H, W, H));
 	};
 	SnakeTail() {};
-	void update(float time);
+	void update();
 	static bool removeTurnsPredicate(turn currentTurn);
 };
 

@@ -12,6 +12,7 @@ public:
 	SnakeHead snakeHead;
 	vector<SnakeBody> snakeBody;
 	SnakeTail snakeTail;
+	int score = 0;
 public:
 	Snake(SnakeHead& head, SnakeBody& body, SnakeTail& tail) {
 		snakeHead = head;
@@ -19,4 +20,5 @@ public:
 		snakeTail = tail;
 	}
 	void control();
+	bool checkSnakeSelfCollision();
 };

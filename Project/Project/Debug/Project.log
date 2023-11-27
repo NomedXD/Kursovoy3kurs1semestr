@@ -110,9 +110,49 @@ D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(309,20): warnin
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(318,20): warning C4018: <: несоответствие типов со знаком и без знака
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(340,28): warning C4018: <: несоответствие типов со знаком и без знака
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(341,27): warning C4018: <: несоответствие типов со знаком и без знака
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(84,16): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(152,20): warning C4018: <: несоответствие типов со знаком и без знака
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(181,45): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(181,37): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(80,16): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(98,93): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(98,82): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(98,62): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(98,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,93): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,82): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,62): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(102,47): warning C4244: аргумент: преобразование "float" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(189,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(218,45): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\3 курс, 1 сем\Курсовой\Project\Project\main.cpp(218,37): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\3 курс, 1 сем\Курсовой\Project\Project\level.h(312): warning C4715: Level::GetObjectW: значение возвращается не при всех путях выполнения
   Project.vcxproj -> D:\3 курс, 1 сем\Курсовой\Project\Debug\Project.exe

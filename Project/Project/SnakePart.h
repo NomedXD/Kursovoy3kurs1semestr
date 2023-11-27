@@ -10,7 +10,6 @@ class SnakePart
 public:
 	float x, y, w, h, dx, dy, speed = 32;
 	int dir = 0; 
-	float currentFrame = 0;
 	static String File; 
 	static Image image;
 	static Texture texture;
@@ -24,7 +23,8 @@ public:
 	SnakePart() {};
 	static void init();
 public:
-	virtual void update(float time) = 0;
+	virtual void update() = 0;
+	FloatRect getRect();
 };
 
 struct turn

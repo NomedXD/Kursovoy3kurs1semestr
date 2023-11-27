@@ -14,23 +14,14 @@ auto_ptr<Apple> generateApple(const Snake& snake, PRNG& generator);
 
 void initGenerator(PRNG& generator)
 {
-	// Создаём псевдо-устройство для получения случайного зерна.
 	std::random_device device;
-	// Получаем случайное зерно последовательности
 	generator.engine.seed(device());
 }
 
-// Генерирует целое число в диапазоне [minValue, maxValue)
 unsigned random(PRNG& generator, unsigned minValue, unsigned maxValue)
 {
-	// Проверяем корректность аргументов
 	assert(minValue < maxValue);
-
-	// Создаём распределение
 	std::uniform_int_distribution<unsigned> distribution(minValue, maxValue);
-
-	// Вычисляем псевдослучайное число: вызовем распределение как функцию,
-	//  передав генератор произвольных целых чисел как аргумент.
 	return distribution(generator.engine);
 }
 
@@ -47,6 +38,11 @@ int main()
 
 	Level lev;
 	lev.LoadFromFile("map.tmx");
+	Font font;
+	font.loadFromFile("fonts/Inkulinati-Regular.otf");
+	Text score("Score: 0", font, 20);
+	score.setFillColor(Color::Red);
+	score.setStyle(Text::Bold);
 	vector<Object> obj;
 	obj = lev.GetObjects("solid");
 	Object snakeHead = lev.GetObject("snakeHead");
@@ -61,8 +57,8 @@ int main()
 	auto_ptr<Apple> apple = generateApple(snake, generator);
 
 	Clock clock;
-	Clock timer;
-	timer.restart();
+	Clock gameTimer;
+	gameTimer.restart();
 
 	float currentFrame = 0;
 	bool first = false;
@@ -77,29 +73,69 @@ int main()
 		}
 		else
 		{
-			if (timer.getElapsedTime().asSeconds() >= 0.15f) {
-				cout << timer.getElapsedTime().asSeconds();
-				timer.restart();
+			if (gameTimer.getElapsedTime().asSeconds() >= 0.15f) {
+				gameTimer.restart();
 
-				float time = clock.getElapsedTime().asMicroseconds(); //дать прошедшее время в микросекундах
-				clock.restart(); //перезагружает время
-				time = time / 1000; //скорость игры
+				float time = clock.getElapsedTime().asMicroseconds(); 
+				clock.restart(); 
+				time = time / 1000; 
 
-				if (first && checkCollisionWithMap(snake, obj)) {
+				if ((first && checkCollisionWithMap(snake, obj)) || snake.checkSnakeSelfCollision()) {
 					return msg.message = WM_QUIT;
 				}
 
+				if (snake.snakeHead.getRect().intersects(apple.get()->getRect())) {
+					snake.score++;
+					score.setString("Score: " + to_string(snake.score));
+					delete apple.get();
+					apple = generateApple(snake, generator);
+					// creation of new body
+					SnakeBody newBody = SnakeBody(snake.snakeTail.x, snake.snakeTail.y, snake.snakeTail.w, snake.snakeTail.h);
+					(newBody).dir = snake.snakeTail.dir;
+					(newBody).turns = vector<turn>(snake.snakeTail.turns);
+					if (newBody.dir <= 1) {
+						newBody.sprite.setTextureRect(IntRect(1 * newBody.w, 0 * newBody.h, newBody.w, newBody.h));
+					}
+					else
+					{
+						newBody.sprite.setTextureRect(IntRect(2 * newBody.w, 1 * newBody.h, newBody.w, newBody.h));
+					}
+					snake.snakeBody.push_back(newBody);
+					switch (snake.snakeTail.dir)
+					{
+					case 0: {
+						snake.snakeTail.x -= 32;
+						break;
+					}
+					case 1: {
+						snake.snakeTail.x += 32;
+						break;
+					}
+					case 2: {
+						snake.snakeTail.y -= 32;
+						break;
+					}
+					case 3: {
+						snake.snakeTail.y += 32;
+						break;
+					}
+					default:
+						break;
+					}
+				}
+
 				snake.control();
-				snake.snakeHead.update(time);
+				snake.snakeHead.update();
 				apple.get()->update(time);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
-					it->update(time);
+					it->update();
 				}
-				snake.snakeTail.update(time);
-				//sleep(seconds(0.15));
+				snake.snakeTail.update();
 
 				window.clear();
 				lev.Draw(window);
+				score.setPosition(40,40);
+				window.draw(score);
 				window.draw(apple.get()->sprite);
 				window.draw(snake.snakeHead.sprite);
 				for (auto it = snake.snakeBody.begin(); it != snake.snakeBody.end(); it++) {
@@ -166,8 +202,8 @@ auto_ptr<Apple> generateApple(const Snake& snake, PRNG& generator) {
 	int x = 0;
 	int y = 0;
 	while (flag) {
-		x = random(generator, 1, 29);
-		y = random(generator, 1, 29);
+		x = random(generator, 1, 28);
+		y = random(generator, 1, 28);
 		if ((snake.snakeHead.x != x * snake.snakeHead.w) && (snake.snakeHead.y != y * snake.snakeHead.h)
 			&& (snake.snakeTail.x != x * snake.snakeTail.w) && (snake.snakeTail.y != y * snake.snakeTail.h)) {
 			flag = false;

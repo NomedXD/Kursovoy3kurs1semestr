@@ -4,7 +4,7 @@ bool SnakeBody::removeTurnsPredicate(turn currentTurn) {
 	return currentTurn.beRemoved == true;
 }
 
-void SnakeBody::update(float time) {
+void SnakeBody::update() {
 	turns.erase(remove_if(turns.begin(), turns.end(), &removeTurnsPredicate), turns.end());
 	switch (dir)
 	{

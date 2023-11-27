@@ -8,6 +8,6 @@ public:
 	SnakeBody(float X, float Y, float W, float H) :SnakePart(X, Y, W, H) {
 		sprite.setTextureRect(IntRect(1 * W, 0 * H, W, H));
 	};
-	void update(float time);
+	void update();
 	static bool removeTurnsPredicate(turn currentTurn);
 };

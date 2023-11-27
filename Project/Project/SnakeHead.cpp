@@ -1,6 +1,6 @@
 #include "SnakeHead.h"
 
-void SnakeHead::update(float time) {
+void SnakeHead::update() {
 	switch (dir)
 	{
 	case 0: dx = speed; dy = 0;   break;
@@ -13,8 +13,4 @@ void SnakeHead::update(float time) {
 	y += dy;
 
 	sprite.setPosition(x, y);
-}
-
-FloatRect SnakeHead::getRect() {
-	return FloatRect(x, y, w, h);
 }

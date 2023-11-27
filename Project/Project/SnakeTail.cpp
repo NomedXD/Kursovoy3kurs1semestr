@@ -4,7 +4,7 @@ bool SnakeTail::removeTurnsPredicate(turn currentTurn) {
 	return currentTurn.beRemoved == true;
 }
 
-void SnakeTail::update(float time) {
+void SnakeTail::update() {
 	turns.erase(remove_if(turns.begin(), turns.end(), &removeTurnsPredicate), turns.end());
 	switch (dir)
 	{
